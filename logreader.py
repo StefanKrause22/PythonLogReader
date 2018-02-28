@@ -26,8 +26,7 @@ counter4Unsuccessful = 0
 
 regex = re.compile(".*\[([^:]*):(.*) \-[0-9]{4}\] \"([A-Z]+) (.+?)( HTTP.*\"|\") ([2-5]0[0-9]) .*")
 
-while (cont == True):
-    line = f.readline()
+for line in f:
     line = line.replace("\n", "")
     parts = regex.split(line)
     
@@ -45,9 +44,6 @@ while (cont == True):
 
 
     linegroup[i] = parts      # Assigns the finished entry to the dictionary
-    if (line == ''):
-        cont = False
-    i = i + 1
 
 # Debugging print lines    
 #print(re.match(fourtest, parts[6]))
